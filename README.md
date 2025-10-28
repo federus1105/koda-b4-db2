@@ -28,6 +28,6 @@ category {
 user }|--o{ transaksi : melakukan
 user }|--|{ metode_pembayaran : memilih
 user }|--o{histori: melihat
-category }|--o{ metode_pembayaran : memiliki
+category }|--|{ transaksi : memiliki
 transaksi }|--|{ histori : memiliki
 ```
