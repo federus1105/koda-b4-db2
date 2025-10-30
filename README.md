@@ -2,32 +2,34 @@
 
 ```mermaid
 erDiagram
-user {
+users {
+    int id
     string name
     string email
     string addres
     string phone
 }
-metode_pembayaran {
+payment_method {
+    int id
     string name
 }
-transaksi {
-    string name
-    timestamp date
+transactions {
+    int id
+    string title
+    int id_users
+    int id_payment_method
+    int id_category_payment
+    timestamp created_at
     string price
     string description
 }
-histori {
-    string name
-    timestamp date
-}
-category {
+category_payment {
+    int id
     string name
 }
 
-user }|--o{ transaksi : melakukan
-user }|--|{ metode_pembayaran : memilih
-user }|--o{histori: melihat
-category }|--|{ transaksi : memiliki
-transaksi }|--|{ histori : memiliki
+users }|--o{ transactions : melakukan
+users }|--o{ payment_method : memiliki
+transactions}|--|{payment_method : dibayar
+transactions }|--o{ category_payment : memiliki
 ```
